@@ -30,7 +30,7 @@ class Controller
         }
     }
 
-    public function auth($role)
+    public function auth($specialiste)
     {
         $iat = time();
         $exp = $iat + 60 * 60;
@@ -39,7 +39,7 @@ class Controller
             "aud" => "localhost",
             "iat" => $iat,
             'exp' => $exp,
-            'role' => $role,
+            'specialiste' => $specialiste,
         );
 
         $jwt = JWT::encode($payload, $this->key, 'HS512');
